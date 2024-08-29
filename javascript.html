@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    span {
+        color: red;
+    }
+</style>
+
+<body>
+    <h4>Ada rekomendasi?<span>*</span></h4>
+    <form>
+        <select name="apaaja" class="apa_aja" id="apaaja1" onchange="changeLabel(this)">
+            <option disabled hidden selected>Pilih</option>
+            <option value="L">Ada</option>
+            <option value="P">Tidak</option>
+
+        </select>
+        <br>
+        <div id="name_wrapper">
+            <label for="">Nama Lengkap Rekomendasi<span>*</span></label><br>
+            <input type="text" id="name" name="name">
+            <h4>Kategori rekomendasi<span>*</span></h4>
+            <select name="apaaja2" class="apa_aja2" id="apaaja3" onchange="changeLabew(this)">
+                <option disabled hidden selected>Pilih</option>
+                <option value="Q">Pekerja BRI</option>
+                <option value="R">Purnabakti</option>
+            </select>
+            <br>
+            <div id="nama_wrapper">
+                <label for="">Nomor ID Pegawai/KTA/PN/MP<span>*</span></label><br>
+                <input type="text" id="name" name="name">
+            </div>
+            <br>
+            <div id="namu_wrapper">
+                <label for="">Jabatan Rekomendasi<span>*</span></label><br>
+                <input type="text" id="name" name="name">
+            </div>
+        </div>
+
+    </form>
+    <script>
+        function changeLabel(e) {
+            let textChange = document.getElementById("text_change");
+            let nameWrapper = document.getElementById("name_wrapper");
+
+            if (e.value == "L") {
+                nameWrapper.style.display = "block";
+            } else {
+                nameWrapper.style.display = "none";
+            }
+        }
+        function changeLabew(e) {
+            let textChange = document.getElementById("text_change");
+            let nameWrapper = document.getElementById("namu_wrapper");
+
+            if (e.value == "Q") {
+                nameWrapper.style.display = "block";
+            } else {
+                nameWrapper.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

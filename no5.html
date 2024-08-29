@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOAL NO 5</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+#countdown {
+    font-size: 48px;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</head>
+<body>
+    <h2>Hitung Mundur</h2>
+    <div id="countdown">5</div>
+    
+    <button id="startButton" onclick="startCountdown()">Mulai</button>
+    <button id="stopButton" onclick="stopCountdown()">Berhenti</button>
+
+    
+
+    <script>
+        let countdown;
+let interval;
+
+function startCountdown() {
+    const countdownElement = document.getElementById("countdown");
+    countdown = parseInt(countdownElement.innerText);
+
+    interval = setInterval(function() {
+        if (countdown > 1) {
+            countdown--;
+            countdownElement.innerText = countdown;
+        } else {
+            countdownElement.innerText = "Waktu Habis";
+            clearInterval(interval);
+        }
+    }, 1000);
+}
+
+function stopCountdown() {
+    clearInterval(interval);
+}
+
+    </script>
+</body>
+</html>

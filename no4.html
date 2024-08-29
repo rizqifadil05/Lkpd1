@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img#preview {
+            border: 6px solid #ddd;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            display: none;
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+
+        .square {
+            border-radius: 10px;
+        }
+
+        .triangle {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            width: 180px;
+            height: 180px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div class="container">
+            <div class="img">
+                <label for="image">Ubah Gambar:</label>
+                <select name="image" id="image">
+                    <option disabled hidden selected>Pilih Gambar</option>
+                    <option value="kentang.jpg">French fries</option>
+                    <option value="nugget.jpg">Nugget</option>
+                    <option value="sosis.webp">Sausage</option>
+                </select>
+            </div>
+            <div class="bentuk">
+                <label for="border">Pilih Bentuk:</label>
+                <select name="border" id="border">
+                    <option disabled hidden selected>Pilih Bentuk</option>
+                    <option value="K">Kotak</option>
+                    <option value="L">Lingkaran</option>
+                    <option value="S">Segitiga</option>
+                </select>
+            </div>
+            <div class="warna">
+                <label for="color">Pilih Warna Border:</label>
+                <select name="color" id="color">
+                    <option disabled hidden selected>Pilih Warna</option>
+                    <option value="red">Merah</option>
+                    <option value="yellow">Kuning</option>
+                    <option value="green">Hijau</option>
+                </select>
+            </div>
+            <button type="button" onclick="applyChanges()">Kirim</button>
+        </div>
+        <img id="preview" src="" alt="Gambar Pilihan">
+    </form>
+
+    <script>
+        function applyChanges() {
+            const preview = document.getElementById('preview');
+
+            const selectedImage = document.getElementById('image').value;
+            const selectedColor = document.getElementById('color').value;
+            const selectedShape = document.getElementById('border').value;
+
+            preview.src = selectedImage;
+            preview.style.borderColor = selectedColor;
+
+            // Reset classes
+            preview.className = '';
+
+            // Apply shape changes
+            if (selectedShape === 'K') {
+                preview.classList.add('square');
+            } else if (selectedShape === 'L') {
+                preview.classList.add('circle');
+            } else if (selectedShape === 'S') {
+                preview.classList.add('triangle');
+            }
+
+            preview.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
